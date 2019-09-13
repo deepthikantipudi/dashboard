@@ -21,9 +21,9 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-2" *ngFor="let app of apps">
-                <div class="card card1">
+                <div (click)="navigate(app.appId)" class="card card1">
                   <div class="card-header card-header1  mx-auto">
-                    <a href="http://localhost:4200/dashboard">{{ app.appName }} </a>
+                    {{ app.appName }} 
                   </div>
                   <div class="card-body">
                     <img src='{{app.url}}' alt="Health" height="80" width="80" class="center">

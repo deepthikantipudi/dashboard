@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
  
-  {path:'home', component: HomeComponent },
+  {path:'', component: HomeComponent },
   {path:'dashboard', component: DashboardComponent }
 
   // { path: '/:id', component: CustomerFormComponent }

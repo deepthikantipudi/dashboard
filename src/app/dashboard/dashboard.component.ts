@@ -12,6 +12,9 @@ import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 export class DashboardComponent implements OnInit {
 
   weight = true;
+  glucose = true;
+  bloodpressure = true;
+  cholesterol = true;
 
   public lineChartType = 'line';
 
@@ -88,9 +91,62 @@ export class DashboardComponent implements OnInit {
   weightToggle() {
     this.weight = !this.weight;
   }
-  bloodPressureToggle() {
+  public lineChartData1: ChartDataSets[] = [
+    // {data: [65, 59, 300, 81, 56, 140], label: 'Weight'},
+    {data: [122,234,111,222,111,123], label: 'glucose'}
 
+ 
+  ];
 
+  glucoseToggle(){
+    this.glucose=!this.glucose;
   }
+
+
+  public lineChartColors2: Color[] = [
+   
+    {
+      backgroundColor: 'transparent',
+      borderColor: 'rgba(224,116,0,0.8)',
+      pointBackgroundColor: 'rgba(224,116,0,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(224,116,0,0.8)',
+    }
+  ];
+
+  public lineChartData2: ChartDataSets[] = [
+    {data: [65, 59, 300, 81, 56, 140], label: 'high'},
+    {data: [122,234,111,222,111,123], label: 'low'}
+
+ 
+  ];
+  bloodpressureToggle() {
+    this.bloodpressure = !this.bloodpressure;
+  }
+
+  public lineChartColors3: Color[] = [
+   
+    {
+      backgroundColor: 'transparent',
+      borderColor: 'rgba(224,116,0,0.8)',
+      pointBackgroundColor: 'rgba(224,116,0,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(224,116,0,0.8)',
+    }
+  ];
+
+  public lineChartData3: ChartDataSets[] = [
+    {data: [65, 159, 200, 85, 156, 140], label: 'cholesterol'},
+    
+
+ 
+  ];
+
+  cholesterolToggle() {
+    this.cholesterol = !this.cholesterol;
+  }
+
 
 }
