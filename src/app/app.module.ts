@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 
 import {AppComponent} from './app.component';
+import {HttpClientModule} from '@angular/common/http';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
@@ -22,7 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     ChartsModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

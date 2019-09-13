@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Color, Label, MultiDataSet} from 'ng2-charts';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
+import { DashboardService } from '../dashboard.service';
 
 // import { ChartType } from 'chart.js';
 
@@ -15,6 +16,13 @@ export class DashboardComponent implements OnInit {
   glucose = true;
   bloodpressure = true;
   cholesterol = true;
+  currentWeight;
+  currentGlucose;
+  currentCholesterol;
+  currentBlood;
+  highBp;
+  lowBp;
+  response;
 
   public lineChartType = 'line';
 
@@ -82,10 +90,47 @@ export class DashboardComponent implements OnInit {
     {data: [65, 59, 300, 81, 56, 140], label: 'Weight'}
   ];
 
-  constructor() {
+  constructor(private dashboardService: DashboardService) {
   }
 
   ngOnInit() {
+    this.dashboardService.getDashboard().subscribe(
+      (res) => {
+        console.log(res);
+        this.currentWeight = res;
+    },
+    err => {
+           console.log("error", err);
+         }
+    );
+    
+    this.dashboardService.getGlucose().subscribe(
+      (res) => {
+        console.log(res);
+        this.currentGlucose = res;
+    },
+    err => {
+           console.log("error", err);
+         }
+    );
+    this.dashboardService.getCholesterol().subscribe(
+      (res) => {
+        console.log(res);
+        this.currentCholesterol = res;
+    },
+    err => {
+           console.log("error", err);
+         }
+    );
+    this.dashboardService.getBlood().subscribe(
+      (res) => {
+        console.log(res.highBP);
+        this.currentBlood = res.highBP+"/"+res.lowBP;       
+    },
+    err => {
+           console.log("error", err);
+         }
+    );
   }
 
   weightToggle() {
