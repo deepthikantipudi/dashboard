@@ -92,6 +92,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(private dashboardService: DashboardService) {
   }
+  contenteditable:boolean = false;
+  data = {
+    chLevel :"",
+  }
+
 
   ngOnInit() {
     this.dashboardService.getDashboard().subscribe(
@@ -192,6 +197,23 @@ export class DashboardComponent implements OnInit {
   cholesterolToggle() {
     this.cholesterol = !this.cholesterol;
   }
+  
+
+
+  toggleContenteditable(){
+     
+    this.contenteditable = !this.contenteditable;
+
+// this.dashboardService.postCholesterol.
+    // this.currentCholesterol.value = ;
+
+
+
+
+
+  }
+
+ 
 
 
 }

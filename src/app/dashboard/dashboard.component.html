@@ -11,7 +11,9 @@
   </div>
   <div class="card-body">
   <div class="row" *ngIf="weight">
-  <div class="col-md-8 font-weight-bold data">{{currentWeight}} lbs</div>
+  <div [attr.contenteditable]="contenteditable" class="col-md-4 font-weight-bold data">{{currentWeight}}</div>
+  <div class="col-md-4 font-weight-bold data">lbs</div>
+
   <div class="col-md-4 font-weight-bold data"><span class="fa fa-arrow-up"></span></div>
   </div>
   
@@ -29,7 +31,10 @@
   <div class="medium text-muted mt-2">As of 2 days ago</div>
   </div>
   <div class="card-footer">
-  <div class="float-right"><span class="fa fa-share-alt text-muted"></span></div>
+  <div class="float-right">
+      <span   class="fa fa-plus-square text-muted"   (click)="toggleContenteditable()"></span>
+      <span class="fa fa-share-alt text-muted"></span>
+  </div>
   </div>
   </div>
   </div>
@@ -40,7 +45,8 @@
   </div>
   <div class="card-body">
     <div class="row" *ngIf="bloodpressure">
-      <div class="col-md-8 font-weight-bold data">{{currentBlood}}</div>
+      <div [attr.contenteditable]="contenteditable" class="col-md-8 font-weight-bold data">{{currentBlood}}</div>
+
       <div class="col-md-4 font-weight-bold data"><span class="fa fa-arrow-down"></span></div>
     </div>
 
@@ -58,7 +64,9 @@
   <div class="medium text-muted">Over 1 month ago</div>
   </div>
   <div class="card-footer">
-  <div class="float-right"><span class="fa fa-share-alt text-muted"></span></div>
+  <div class="float-right">
+      <span   class="fa fa-plus-square text-muted"   (click)="toggleContenteditable()"></span>
+      <span class="fa fa-share-alt text-muted"></span></div>
   </div>
   </div>
   </div>
@@ -73,7 +81,8 @@
   <div class="card-body">
 
     <div class="row" *ngIf="glucose">
-      <div class="col-md-8 font-weight-bold data">{{currentGlucose}} mg</div>
+      <div [attr.contenteditable]="contenteditable" class="col-md-3 font-weight-bold data">{{currentGlucose}}</div>
+      <div class="col-md-5 font-weight-bold data">mg</div>
       <div class="col-md-4 font-weight-bold data"><span class="fa fa-arrow-up"></span></div>
     </div>
     <div style="display: block" *ngIf="!glucose">
@@ -91,7 +100,9 @@
   
   </div>
   <div class="card-footer">
-  <div class="float-right"><span class="fa fa-share-alt text-muted"></span></div>
+  <div class="float-right">
+      <span   class="fa fa-plus-square text-muted"   (click)="toggleContenteditable()"></span>
+      <span class="fa fa-share-alt text-muted"></span></div>
   </div>
   </div>
   </div>
@@ -103,8 +114,11 @@
   <div class="card-body">
 
     <div class="row" *ngIf="cholesterol">
-      <div class="col-md-8 font-weight-bold data">{{currentCholesterol}} mg</div>
+      
+      <div [attr.contenteditable]="contenteditable" class="col-md-4 font-weight-bold data">{{currentCholesterol}}</div>
+      <div class="col-md-4 font-weight-bold data">mg</div>
       <div class="col-md-4 font-weight-bold data"><span class="fa fa-arrow-up"></span></div>
+
     </div>
 
     <div style="display: block" *ngIf="!cholesterol">
@@ -119,9 +133,14 @@
     </div>
   
   <div class="medium text-muted">Over 1 month ago</div>
+  <!-- <button (click)="toggleContenteditable()">Edit Text Content</button> -->
   </div>
   <div class="card-footer">
-  <div class="float-right"><span class="fa fa-share-alt text-muted"></span></div>
+  <div class="float-right">
+    <span   class="fa fa-plus-square text-muted"   (click)="toggleContenteditable()"></span>
+    <span class="fa fa-share-alt text-muted"></span>
+    
+  </div>
   </div>
   </div>
   </div>

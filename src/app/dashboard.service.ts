@@ -25,5 +25,22 @@ export class DashboardService {
   getBlood(){
     return this.http.get<any>(this.url + '/BP/CurrentBP/2');
   }
+  postDashboard() {
+    return this.http.get(this.url + '/Weight/CurrentWeight/2');
+  }
+
+  postGlucose(){
+    return this.http.get(this.url + '/GL/CurrentGL/2');
+  }
+
+  postCholesterol(data){
+     this.http.post(this.url + '/CL/PatientCL', data);
+  }
+
+  postBlood(){
+    return this.http.get<any>(this.url + '/BP/CurrentBP/2');
+  }
+
+  
   
 }
