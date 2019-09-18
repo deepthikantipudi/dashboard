@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Color, Label, MultiDataSet} from 'ng2-charts';
 import {ChartDataSets, ChartOptions, ChartType} from 'chart.js';
 import { DashboardService } from '../dashboard.service';
+import { Data } from '../data.model';
 
 // import { ChartType } from 'chart.js';
 
@@ -93,9 +94,7 @@ export class DashboardComponent implements OnInit {
   constructor(private dashboardService: DashboardService) {
   }
   contenteditable:boolean = false;
-  data = {
-    chLevel :"",
-  }
+ 
 
 
   ngOnInit() {
@@ -198,11 +197,20 @@ export class DashboardComponent implements OnInit {
     this.cholesterol = !this.cholesterol;
   }
   
+  data:Data = new Data();
 
 
-  toggleContenteditable(){
+  toggleContenteditable(): void {
      
     this.contenteditable = !this.contenteditable;
+
+  }
+
+    toggleSubmit(): void {
+
+      this.contenteditable = false;
+   
+    this.dashboardService.postCholesterol(this.data);
 
 // this.dashboardService.postCholesterol.
     // this.currentCholesterol.value = ;

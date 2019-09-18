@@ -115,9 +115,10 @@
 
     <div class="row" *ngIf="cholesterol">
       
-      <div [attr.contenteditable]="contenteditable" class="col-md-4 font-weight-bold data">{{currentCholesterol}}</div>
+      <div [attr.contenteditable]="contenteditable" class="col-md-4 font-weight-bold data" [(ngModel)="data.chLevel">{{currentCholesterol}}</div>
       <div class="col-md-4 font-weight-bold data">mg</div>
       <div class="col-md-4 font-weight-bold data"><span class="fa fa-arrow-up"></span></div>
+      
 
     </div>
 
@@ -137,7 +138,10 @@
   </div>
   <div class="card-footer">
   <div class="float-right">
-    <span   class="fa fa-plus-square text-muted"   (click)="toggleContenteditable()"></span>
+    <span class="fa fa-plus-square text-muted"   (click)="toggleContenteditable()"></span>
+    &nbsp;
+    <span class="fa fa-arrow-right text-muted" (click)="toggleSubmit()"></span>
+&nbsp;
     <span class="fa fa-share-alt text-muted"></span>
     
   </div>
