@@ -8,7 +8,8 @@ export class Details {
     lowBP:string
     // weight:string;
 
-    // constructor(chLevel: string){
-    //     this.chLevel = chLevel;
-    // }
+    constructor(highBP: string, lowBP:string){
+        this.highBP = highBP;
+        this.lowBP=lowBP;
+    }
 }

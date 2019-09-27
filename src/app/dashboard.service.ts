@@ -59,7 +59,7 @@ export class DashboardService {
   }
 
   postBlood(jsonObject){
-    this.http.post(this.url + 'BP/PatientBP', jsonObject).toPromise().then((data) => {
+    this.http.post(this.url + '/BP/PatientBP', jsonObject).toPromise().then((data) => {
       console.log("returned object" + JSON.stringify(data));
     })
   }
