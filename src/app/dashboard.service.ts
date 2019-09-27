@@ -11,28 +11,26 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-
-
-
-
-
-
-  
+ 
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
 
-  url= 'http://172.16.1.34:8082'
+  url= 'http://localhost:8082'
   constructor(private http: HttpClient) { }
+  getweight(){
 
+    return this.http.get(this.url + '/Weight/AverageWeight/2/2019');
+    // return this.http.get(this.avgurl);
+    }
   getDashboard() {
-    return this.http.get(this.url + '/Weight/CurrentWeight/2');
+    return this.http.get(this.url + '/Weight/CurrentWeight/6');
   }
 
   getGlucose(){
-    return this.http.get(this.url + '/GL/CurrentGL/2');
+    return this.http.get(this.url + '/GL/CurrentGL/1');
   }
 
   getCholesterol(){
@@ -42,31 +40,30 @@ export class DashboardService {
   getBlood(){
     return this.http.get<any>(this.url + '/BP/CurrentBP/2');
   }
-  postDashboard() {
-    return this.http.get(this.url + '/Weight/CurrentWeight/2');
+  postWeight(jsonObject){
+    this.http.post(this.url + '/Weight/PatientWeight', jsonObject).toPromise().then((data) => {
+      console.log("returned object" + JSON.stringify(data));
+    })
   }
-
-  postGlucose(){
-    return this.http.get(this.url + '/GL/CurrentGL/2');
-  }
-
-  postCholesterol(details:Details){
-
-    var body = JSON.stringify(details);
-
-
-    return  this.http.post(this.url + '/CL/PatientCL', body);
-   }
-
-  postBlood(){
-    return this.http.get<any>(this.url + '/BP/CurrentBP/2');
-  }
-
+  
   sendCholesterol(jsonObject){
     this.http.post(this.url + '/CL/PatientCL', jsonObject).toPromise().then((data) => {
       console.log("returned object" + JSON.stringify(data));
     })
   }
+
+  sendGlucose(jsonObject){
+    this.http.post(this.url + '/GL/PatientGL', jsonObject).toPromise().then((data) => {
+      console.log("returned object" + JSON.stringify(data));
+    })
+  }
+
+  postBlood(jsonObject){
+    this.http.post(this.url + 'BP/PatientBP', jsonObject).toPromise().then((data) => {
+      console.log("returned object" + JSON.stringify(data));
+    })
+  }
+
 
 
   
